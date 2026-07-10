@@ -14,14 +14,14 @@
 
 ---
 
-## 📖 4. Overview
+## 📖 1. Overview
 **Agentic AI Researcher** is an autonomous, end-to-end research assistant powered by **LangGraph** and **Google Gemini 2.5 Flash**. It accepts a research topic, autonomously searches the **arXiv** database for relevant literature, downloads and parses PDFs, synthesizes the core findings, and automatically drafts a fully formatted academic paper in **LaTeX and PDF** formats. 
 
 Built for researchers, academics, and AI enthusiasts, this project demonstrates the power of Agentic AI workflows in automating tedious literature reviews and document generation tasks.
 
 ---
 
-## 🧐 5. Problem Statement
+## 🧐 2. Problem Statement
 In the modern academic and technical landscape:
 - **Manual research is time-consuming:** Finding, downloading, and reviewing dozens of papers takes days or weeks.
 - **Reading multiple research papers is difficult:** Extracting the signal from the noise across complex, dense PDFs is mentally taxing.
@@ -31,7 +31,7 @@ In the modern academic and technical landscape:
 
 ---
 
-## 💡 6. Proposed Solution
+## 💡 3. Proposed Solution
 This repository solves the academic research bottleneck using **Agentic AI**.
 
 When a user provides a research topic, the AI:
@@ -45,7 +45,7 @@ When a user provides a research topic, the AI:
 
 ---
 
-## ✨ 7. Key Features
+## ✨ 4. Key Features
 - **Autonomous Agent Workflow:** Built with LangGraph for stateful execution, tool calling, and deterministic end-to-end flows.
 - **arXiv API Integration:** Multi-strategy querying to find the most relevant academic literature.
 - **Automated PDF Parsing:** Hands-free downloading and text extraction of arXiv research papers.
@@ -56,7 +56,7 @@ When a user provides a research topic, the AI:
 
 ---
 
-## 🏗 8. System Architecture
+## 🏗 5. System Architecture
 
 The architecture consists of loosely coupled modules orchestrated by LangGraph:
 - **Streamlit UI (`app.py`):** The frontend interface. Manages session state, chat history, and displays the paper selection panel and final outputs.
@@ -83,7 +83,7 @@ graph TD
 
 ---
 
-## 🔄 9. Complete Workflow
+## 🔄 6. Complete Workflow
 
 ```mermaid
 sequenceDiagram
@@ -113,7 +113,7 @@ sequenceDiagram
 
 ---
 
-## 🧠 10. Agentic AI Pipeline
+## 🧠 7. Agentic AI Pipeline
 
 The pipeline leverages **LangGraph** to maintain a typed state (`State`) containing chat messages, paper context, and user-selected papers. 
 - **Decision-Making:** The agent evaluates the current state. If a tool call is requested (e.g., searching arXiv), it routes to the `tools` node. If papers have been selected for final generation, or if the research phase is complete, it routes to the `synthesize` node.
@@ -123,7 +123,7 @@ The pipeline leverages **LangGraph** to maintain a typed state (`State`) contain
 
 ---
 
-## 📁 11. Project Structure
+## 📁 8. Project Structure
 
 ```text
 Agentic-AI-Researcher-main/
@@ -157,7 +157,7 @@ Agentic-AI-Researcher-main/
 
 ---
 
-## 🛠 12. Tech Stack
+## 🛠 9. Tech Stack
 
 | Category | Technologies |
 |---|---|
@@ -171,7 +171,7 @@ Agentic-AI-Researcher-main/
 
 ---
 
-## ⚙️ 13. Installation
+## ⚙️ 10. Installation
 
 **Step 1: Clone the repository**
 ```bash
@@ -192,7 +192,7 @@ uv sync
 
 ---
 
-## 📋 14. Prerequisites
+## 📋 11. Prerequisites
 - **Python 3.12** or higher.
 - **Tectonic LaTeX Engine:** Required for compiling the generated `.tex` files into PDFs.
   - *Windows (Admin PowerShell):*
@@ -206,7 +206,7 @@ uv sync
 
 ---
 
-## 🔐 15. Environment Variables
+## 🔐 12. Environment Variables
 
 Create a `.env` file in the root directory and add the following variable:
 
@@ -220,7 +220,7 @@ Alternatively, set it in your terminal:
 
 ---
 
-## 🚀 16. Running the Project
+## 🚀 13. Running the Project
 
 Start the Streamlit application:
 
@@ -232,7 +232,7 @@ The application will launch in your default web browser (usually at `http://loca
 
 ---
 
-## 📸 17. Screenshots
+## 📸 14. Screenshots
 
 <div align="center">
 
@@ -249,7 +249,7 @@ The application will launch in your default web browser (usually at `http://loca
 
 ---
 
-## 🔌 18. API Documentation
+## 🔌 15. API Documentation
 
 ### **arXiv API**
 - **Endpoint:** `https://export.arxiv.org/api/query`
@@ -259,7 +259,7 @@ The application will launch in your default web browser (usually at `http://loca
 
 ---
 
-## 🔬 19. Methodology
+## 🔬 16. Methodology
 
 1. **Query Normalization:** User topics are sanitized into robust arXiv query structures.
 2. **Document Retrieval:** PDFs are fetched directly from arXiv servers.
@@ -269,7 +269,7 @@ The application will launch in your default web browser (usually at `http://loca
 
 ---
 
-## ⚠️ 20. Challenges Faced
+## ⚠️ 17. Challenges Faced
 
 - **LLM Rate Limits:** Free-tier AI models frequently hit `RESOURCE_EXHAUSTED` (429) errors when processing heavy PDF contexts. **Solution:** Implemented a robust exponential backoff retry system in `ai_agent.py` to pause and retry execution automatically.
 - **LaTeX Compilation Errors:** LLMs often generate invalid LaTeX syntax, causing compilation to crash. **Solution:** Created a robust `_sanitize_latex` regex pipeline to clean up standard markdown artifacts, replace improper quotes, and ensure document environments are closed correctly.
@@ -277,7 +277,7 @@ The application will launch in your default web browser (usually at `http://loca
 
 ---
 
-## 📊 21. Performance
+## 📊 18. Performance
 
 - **End-to-End Latency:** 2–5 minutes per full report (dependent on the number of PDFs downloaded and Gemini API response times).
 - **PDF Extraction Speed:** Parses standard arXiv preprints (10-20 pages) in under 2 seconds locally.
@@ -285,7 +285,7 @@ The application will launch in your default web browser (usually at `http://loca
 
 ---
 
-## 🔮 22. Future Enhancements
+## 🔮 19. Future Enhancements
 
 - [ ] **Retrieval-Augmented Generation (RAG):** Integrate a Vector Database (e.g., ChromaDB or FAISS) to chunk and semantically search entire PDFs instead of truncating text.
 - [ ] **Multi-Agent Collaboration:** Split the monolithic agent into a Planner, Researcher, Writer, and Reviewer (e.g., using CrewAI or AutoGen paradigms).
@@ -295,7 +295,7 @@ The application will launch in your default web browser (usually at `http://loca
 
 ---
 
-## 🌐 23. Deployment Guide
+## 🌐 20. Deployment Guide
 
 To deploy this Streamlit app locally or on a cloud provider (e.g., Streamlit Community Cloud, Render, or Railway):
 
@@ -315,7 +315,7 @@ To deploy this Streamlit app locally or on a cloud provider (e.g., Streamlit Com
 
 ---
 
-## 📚 24. Learning Outcomes
+## 📚 21. Learning Outcomes
 Developers exploring this repository will learn how to:
 - Construct **stateful agent architectures** using LangGraph.
 - Bind and orchestrate Python **Tools** for LLM execution.
@@ -326,7 +326,7 @@ Developers exploring this repository will learn how to:
 
 ---
 
-## 🗺 25. Roadmap
+## 🗺 22. Roadmap
 
 - [x] Initial LangGraph Pipeline Setup
 - [x] Streamlit Frontend Integration
@@ -338,7 +338,7 @@ Developers exploring this repository will learn how to:
 
 ---
 
-## 🤝 26. Contributing
+## 🤝 23. Contributing
 
 Contributions are welcome! If you'd like to improve the LaTeX generation, add new databases, or enhance the UI:
 1. Fork the repository.
@@ -349,13 +349,13 @@ Contributions are welcome! If you'd like to improve the LaTeX generation, add ne
 
 ---
 
-## 📄 27. License
+## 📄 24. License
 
 This project is licensed under the **MIT License**. See the `LICENSE` file for more details.
 
 ---
 
-## ✍️ 28. Author
+## ✍️ 25. Author
 
 **Pranav Sriram**  
 - GitHub: [@PranavSriram39](https://github.com/PranavSriram39)  
