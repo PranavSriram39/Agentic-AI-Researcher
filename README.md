@@ -1,9 +1,9 @@
-<!-- 1. Banner -->
+ 1. Banner 
 <div align="center">
   <img src="https://via.placeholder.com/1200x300/09090b/ffffff?text=Agentic+AI+Researcher" alt="Agentic AI Researcher Banner" width="100%">
 </div>
 
-<!-- 2. Project Title -->
+2. Project Title 
 # 🧠 Agentic AI Researcher
 
 <!-- 3. Short Description -->
@@ -369,5 +369,5 @@ This project is licensed under the **MIT License**. See the `LICENSE` file for m
 
 ---
 <div align="center">
-  <i>Built with ❤️ using LangGraph, Gemini, and Streamlit.</i>
+  <i>Built with using LangGraph, Gemini, and Streamlit.</i>
 </div>
