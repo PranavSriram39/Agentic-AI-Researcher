@@ -1,9 +1,3 @@
- 1. Banner 
-<div align="center">
-  <img src="https://via.placeholder.com/1200x300/09090b/ffffff?text=Agentic+AI+Researcher" alt="Agentic AI Researcher Banner" width="100%">
-</div>
-
-2. Project Title 
 # 🧠 Agentic AI Researcher
 
 <!-- 3. Short Description -->
